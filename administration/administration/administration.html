@@ -1,0 +1,132 @@
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Gestion des utilisateurs</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="">Accueil</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Administration</li>
+        </ol>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Liste des utilisateurs
+                <button type="button" data-toggle="tooltip" data-placement="left" title="ajouter" class="btn btn-primary btn-sm pull-right ajouter"><i class="fa fa-plus"></i></button>
+            </div>
+
+            <!-- affichage de la resource -->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table width="100%" id="example" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénoms</th>
+                                <th>Nom d'utilisateur</th>
+                                <th>Adresse e-mail</th>
+                                <th>Structure</th>
+                                <th>Rôle</th>
+                                <th>Actif</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- resource modal: formulaires -->
+            <div class="modal fade" id="form_modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <span id="title"></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form">
+                                <div class="form-group row">
+                                    <label for="nom" class="col-sm-4 col-form-label">Nom <span style="color: red;">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="nom" placeholder="Nom">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="prenoms" class="col-sm-4 col-form-label">Prénoms <span style="color: red;">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="prenoms" placeholder="Prénoms">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="username" class="col-sm-4 col-form-label">Nom d'utilisateur <span style="color: red;">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="username" placeholder="Nom d'utilisateur">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-4 col-form-label">Adresse e-mail <span style="color: red;">*</span></label>
+                                    <div class="col-sm-8">
+                                        <input type="email" class="form-control" id="email" placeholder="Adresse e-mail">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="structure" class="col-sm-4 col-form-label">Structure <span style="color: red;">*</span></label>
+                                    <div class="col-sm-8">
+                                        <select id="structure" class="form-control"></select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="role" class="col-sm-4 col-form-label">Rôle <span style="color: red;">*</span></label>
+                                    <div class="col-sm-8">
+                                        <select id="role" class="form-control">
+                                            <option value="">--- Sélectionner le rôle ---</option>
+                                            <option value="1">Sectoriel</option>
+                                            <option value="2">Parfa - UCP</option>
+                                            <option value="3">Administrateur</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
+                            <p style="font-size:10px;" class="pull-left animated bounceIn sm">
+                                <span style="color: red;">* </span> : champs obligatoire
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-close" data-dismiss="modal"><i class="fa fa-times"></i> Annuler</button>
+                            <button type="button" id="add" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Ajouter</button>
+                            <button type="button" id="edit" class="btn btn-warning"><i class="fa fa-check-square-o"></i> Modifier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- resource modal: confirmations -->
+            <div class="modal fade" id="confirm_modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <span id="title2"></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Voulez-vous vraiment <span id="confirm_action"></span> ?
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-close" data-dismiss="modal"><i class="fa fa-times"></i> Annuler</button>
+                            <button type="button" id="delete" class="btn btn-danger"><i class="fa fa-check-square-o"></i> Supprimer</button>
+                            <button type="button" id="regenerate" class="btn btn-default"><i class="fa fa-check-square-o"></i> Régénérer</button>
+                            <button type="button" id="activate" class="btn btn-info"><i class="fa fa-check-square-o"></i> <span id="activer"></span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="administration/administration.js"></script>

@@ -1,0 +1,1341 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+<style>
+ html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+#map {
+  
+  width: 100%;
+  height: 400px;
+  background:RGB(254, 254, 254);
+  border:5px solid gray
+  
+ 
+}
+#info {
+  float: right;
+  margin: 0;
+  width: 50%;
+  height: 100%;
+}
+
+/*General marker style
+.map-marker {
+  position: relative;
+  text-align: center;
+  font-weight: bold;
+  background: #444;
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  margin-top: -34px; /*Shift by arrow top+height*/
+  margin-left: -13px; /*Shift by half the marker width*/
+}
+
+*/
+
+.map-marker div.arrow {
+  position: relative;
+  border-style: solid;
+  border-color: #444 transparent transparent transparent;
+  border-width: 10px 6px 0 6px; /*Arrow w/h is defined by the borders*/
+  left: 5px; /*(Marker width - arrow width)/2*/
+  width: 0px; height: 0px;
+}
+
+/*General marker style
+.map-marker div.icon {
+  position: relative;
+  overflow: hidden;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-color: #ccc;
+  width: 20px; /*Same as marker width*/
+  height: 20px; /*Same as marker height*/
+  line-height: 24px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-left: 1px;
+  margin-top: 1px;
+}
+
+*/
+
+/*Marker content instances*/
+.map-marker.exclamation div.icon:before{
+  content: '!';
+}
+.map-marker.A div.icon:before{
+  content: '';
+}
+
+/*Marker color instances*/
+.map-marker.red div.icon{background: #ff2222;}
+
+.map-marker.green div.icon{background: #008800;color: #fff;}
+.map-marker.green {background: #000;}
+.map-marker.green div.arrow{border-top-color: #000;}
+
+/*Marker states*/
+.map-marker.inactive {
+  opacity: 0.6;
+}
+
+#mis_1{
+color:green;
+}
+#mis_1:hover{
+color:yellow;
+}
+
+
+#mis_2{
+color:yellow;
+}
+#mis_2:hover{
+color:red;
+}
+
+#mis_3{
+color:red;
+}
+#mis_2:hover{
+color:blue;
+}
+
+
+tr{border:1px solid #DCDCDC}
+
+i.material-icons{color:RGB(115, 8, 0);font-weight:bold}
+i.material-icons:hover{color:blue;border:4px solid white}
+
+
+table#table_activites.dataTable tbody tr:hover {
+            background-color: #ffa;
+			cursor:pointer
+}
+
+ </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>MEPA-dieng</title>
+    <!-- Favicon-->
+    <link rel="icon" href="images/logo2.jpg" type="images/x-icon">
+	
+	
+   <!--Data Tables -->
+  <link href="administration/assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+  <link href="administration/assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
+	
+	
+	<script>
+		var couche_allume=[];
+	</script>
+	
+	 <script defer src="assets/fontawesome5.0.8/svg-with-js/js/fontawesome-all.js"></script>
+	
+	   <script type="text/javascript" src="bootstrap-multiselect/docs/js/jquery-2.1.3.min.js"></script>
+	    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        
+        <script type="text/javascript" src="bootstrap-multiselect/docs/js/prettify.min.js"></script>
+
+		
+	
+        <link rel="stylesheet" href="bootstrap-multiselect/docs/css/bootstrap-example.min.css" type="text/css">
+        <link rel="stylesheet" href="bootstrap-multiselect/docs/css/prettify.min.css" type="text/css">
+	    <link rel="stylesheet" href="bootstrap-multiselect/dist/css/bootstrap-multiselect.css" type="text/css">
+       
+        <script type="text/javascript" src="bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+		
+		<script src="assets/highchart/code/highcharts.js"></script>
+<script src="assets/highchart/code/modules/series-label.js"></script>
+<script src="assets/highchart/code/modules/exporting.js"></script>
+<script src="assets/highchart/code/modules/export-data.js"></script>
+	
+
+ <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/all.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.8.2/js/v4-shims.js"></script>
+ <script src="js/leaflet.js"></script>
+ 
+ <script src="src/L.Control.HtmlLegend.js"></script>
+<link rel="stylesheet" href="src/L.Control.HtmlLegend.css"/>
+	
+	<!-- Fonts and icons -->
+	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="plugins/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="plugins/node-waves/waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="plugins/animate-css/animate.css" rel="stylesheet" />
+
+    <!-- Morris Chart Css-->
+    <link href="plugins/morrisjs/morris.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
+    <link href="css/themes/all-themes.css" rel="stylesheet" />
+	<link rel="stylesheet" href="leaflet.css" integrity "sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+	
+	
+<script src="src/build.min.js"></script>
+      <link rel="stylesheet" href="src/build.min.css">
+        <link rel="stylesheet" href="dist/fastselect.min.css">
+        <script src="dist/fastselect.standalone.js"></script>
+
+        <style>
+
+            .fstElement { font-size: 1.2em; }
+            .fstToggleBtn { min-width: 16.5em; }
+
+            .submitBtn { display: none; }
+
+            .fstMultipleMode { display: block; }
+            .fstMultipleMode .fstControls { width: 100%; }
+
+        </style>
+
+
+</head>
+
+<body class="theme-red">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="preloader">
+                <div class="spinner-layer pl-red">
+                    <div class="circle-clipper left">
+                        <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                        <div class="circle"></div>
+                    </div>
+                </div>
+            </div>
+            <p>Veuillez attendre pendant le chargement de la page...</p>
+        </div>
+    </div>
+    <!-- #END# Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+    <!-- #END# Overlay For Sidebars -->
+    <!-- Search Bar -->
+    <div class="search-bar">
+        <div class="search-icon">
+            <i class="material-icons">search</i>
+        </div>
+        <input type="text" placeholder="START TYPING...">
+        <div class="close-search">
+            <i class="material-icons">close</i>
+        </div>
+    </div>
+    <!-- #END# Search Bar -->
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="container-fluid" style="background:#E6E6FA">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
+                <a href="javascript:void(0);" class="bars"></a>
+          SYSTEME D'INFORMATION PASTORALE MEPA - Prototype
+            </div>
+            <div class="collapse navbar-collapse" id="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                 
+                    
+                    <!-- #END# Notifications -->
+                    <!-- Tasks -->
+                    
+                    <!-- #END# Tasks -->
+					
+					
+					
+                    <li class="pull-right"></li>
+					
+					<li class="pull-right" class="admin"><a href="administration" target='_blank' ><i title="Cliquer pour accéder à l'interface de mise à jour" class="material-icons">settings</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- #Top Bar -->
+    <section>
+        <!-- Left Sidebar -->
+        <aside id="leftsidebar" class="sidebar">
+            <!-- User Info -->
+            <div class="user-info">
+                
+            </div>
+            <!-- #User Info -->
+            <!-- Menu -->
+            <div  id="sideba" style="max-height:100%;overflow:auto">
+               
+            </div>
+            <!-- #Menu -->
+            <!-- Footer -->
+            <div class="legal">
+                
+            </div>
+            <!-- #Footer -->
+        </aside>
+        <!-- #END# Left Sidebar -->
+        <!-- Right Sidebar -->
+        <aside id="rightsidebar" class="right-sidebar">
+            <ul class="nav nav-tabs tab-nav-right" role="tablist">
+              
+                  <li role="presentation" class="active"><a href="#skins" data-toggle="tab">Régions</a> </li>
+				  <li role="presentation"><a href="#settings" data-toggle="tab">Graphiques </a></li>
+				 
+            </ul>
+            <div class="tab-content" style="overflow:auto">
+			
+			<div role="tabpanel" class="tab-pane fade" id="settings" style="overflow:auto">
+                    <div class="demo-settings">
+					
+					  <ul class="demo-choose-skin">
+					  
+					
+			
+					
+					<div id="container_map"></div>
+
+
+
+		<script type="text/javascript">
+function get_id(entite)
+{
+var id=$('#sub_category_'+entite).val();
+}
+
+		</script>
+                      
+                    </ul>     
+					
+					
+					
+                      
+                       
+                    </div>
+                </div>
+			
+                <div role="tabpanel" class="tab-pane fade in active in active" id="skins" style="text-align:left;min-height:500px">
+				
+				Afficher les infrastructures sur: 
+				  
+				  
+				   <p><input type='radio' name='option_s' checked value='Nationale'> Toutes les régions</p>
+                        <ul class="setting-list">
+                          
+                        </ul>
+                        <p title="cocher ici pour afficher les données au niveau régional"><input type='radio' name='option_s' value='regions'> Régions selectionnées</p>
+                        <ul class="setting-list" title="cocher sur la case région ou actualiser pour afficher les données au niveau régional">
+                            <li>
+ 
+							<select style="border:2px solid blue" placeholder="selectionner"  id="sub_category_regions" class="multipleSelect" multiple name="language">   
+							</select>
+							<button type="submit" onclick='get_couche_allume("regions")'>actualiser</button>
+							</li>
+                          
+						  
+                        </ul>
+						
+						
+						 <!--
+                       <p style="display:none" title="cocher sur la case région ou actualiser pour afficher les données au niveau départements"><input type='radio' name='option_s' value='departements'> Département
+                        <ul class="setting-list">
+                            <li>
+ 
+							<select placeholder="selectionner"  id="sub_category_departements" class="multipleSelect" multiple name="language">   
+							</select>
+						<button type="submit" onclick='get_couche_allume("departements")'>actualiser</button>
+							</li>
+                          
+						  
+                        </ul>
+                        <p title="cocher sur la case région ou actualiser pour afficher les données au niveau communes"><input type='radio' name='option_s' value='communes'> Communes</p>
+                        <ul class="setting-list">
+                            <li>
+                               <select placeholder="selectionner" id="sub_category_communes" class="multipleSelect" multiple name="language"></select> <button type="submit" onclick='get_couche_allume("communes")'>actualiser</button>
+                              
+                            </li>
+                           
+                        </ul>
+				  
+				  </p>    -->
+				  
+                   
+                </div>
+				
+				
+				
+				<div role="tabpanel" class="tab-pane fade in active in active" id="rap" style="overflow:auto">
+                    <div class="demo-settings">
+					
+					
+                       
+                    </div>
+                </div>
+				
+				<div role="tabpanel" class="tab-pane fade in active in active" id="autres" style="overflow:auto">
+                    <div class="demo-settings">
+					
+					
+					
+                       
+                    </div>
+                </div>
+                
+            </div>
+        </aside>
+        <!-- #END# Right Sidebar -->
+    </section>
+	
+	
+		
+
+    <section class="content">
+	
+
+
+        <div class="container-fluid">
+      
+            <div class="row clearfix">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="card" style="border:1px solid #DCDCDC">
+                        <div class="header" style="background:RGB(132, 132, 132)">
+                            <div class="row clearfix">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <h2>
+				
+				<button type="button" style="float:" class="btn btn-primary" data-toggle="modal" data-target="#Modal_select_entite">Cartothèque</button>
+                 <a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i style="float:right;color:"  class="btn btn-primary" title="Cliquer pour afficher la carte par région"> Afficher par entité administrative </i></a>
+				
+					<span id="loader" style="background:white"></span></h2>
+                                </div>
+                               
+                            </div>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                   
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div id="map" class="dashboard-flot-chart"></div>
+                        </div>
+                    </div>
+                </div>
+				
+				 
+				  
+				  
+				 
+            </div>
+			
+			 <!-- Modal -->
+  <div class="modal fade" id="Modal_select_entite">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="background:#fbfcfc">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Cartothèque: </h4>
+        </div>
+        <div class="modal-body" id="visualisation">
+        
+		
+		        <table id="table_activites" class="table table-bordered responsive nowrap" width="100%">
+			   <caption> Liste des cartes<b> <span class='title_activity'></span></b>  </caption>
+                <thead>
+                    <tr>
+					              <th>Action</th>
+                        <th>Description</th>
+						            <th>Type de document</th>
+                       
+         
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                </tbody>
+               
+            </table>       
+						
+						
+		
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+       <script>
+
+                $('.multipleSelect').fastselect();
+
+            </script>
+			
+			
+    </div>
+  </div>
+  
+  
+  
+   <div class="modal fade" id="Modal_read_doc" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="background:RGBA(255,255,255,0.9)">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Toutes les régions</h4>
+        </div>
+        <div class="modal-body">
+		
+		<span id="reader_pdf"></span>
+		
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+     
+    </div>
+  </div>
+			
+			
+          
+
+            <div class="row clearfix">
+                <!-- Task Info -->
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="display:none">
+                    <div class="card">
+                        <div class="header">
+                            <h2> <label>Répartition des données par unité administrative  (<span id="nom_couche_select"></span>)  <span class="lever"></span></label></h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Copier le tableau</a></li>
+                                       
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-hover dashboard-task-infos">
+                                    <thead>
+                                        <tr>
+                                            <th>Type entité</th>
+                                            <th>Nom</th>
+                                            <th>Equipements en marche</th>
+                                            <th>Equipements en cours de réalisation</th>
+                                            <th>Equipements en cours d'étude</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tab_equipe">
+									</tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- #END# Task Info -->
+                <!-- Browser Usage -->
+               
+                <!-- #END# Browser Usage -->
+            </div>
+        </div>
+		
+		 <input type="hidden" id="couche_activer">
+		
+		<div class="row clearfix" id="stats_globaux">
+               
+            </div>
+    </section>
+	
+	
+	
+	
+		<script type="text/javascript" src="dist/leaflet-ajax/dist/leaflet.ajax.js"></script>
+	<script src="js/overlays.php"></script>
+	<script src="js/dictionnaire.php"></script>
+	
+	<script src="js/type_zone.js"></script>
+	
+	<link rel="stylesheet" href="css/styledLayerControl.css" />
+		<script src="src/styledLayerControl.js"></script>
+	
+	<script>				
+var mise_en_service=["","RGB(0,255,0)","RGB(0,0,255)","RGB(255,0,0)"];
+
+	
+	
+	var code_couleur_niveau=[0,"blue","red","yellow"];
+	function Style_par_defaut(feature) {
+     return {color: "#5F9EA0",fillColor:"none",weight:3,fillOpacity: 0.9,opacity: 1};
+}
+
+ var highlightStyle = {
+        "color": "red",
+        "weight": 3,
+        "opacity": 0.9,
+        "fillOpacity": 1,
+        "fillColor": "red"
+    };
+	
+	 var Style_par_defaut2 = {
+        "color": "#5F9EA0",
+        "weight": 3,
+        "opacity": 0.9,
+        "fillOpacity": 1,
+        "fillColor": "blue"
+    };
+	
+	
+	// Define what happens to each polygon just before it is loaded on to
+    // the map. This is Leaflet's special way of goofing around with your
+    // data, setting styles and regulating user interactions.
+    var onEachFeature = function (feature, layer) {
+	
+        var out = [];
+        var out2 = [];
+        if (feature.properties) {
+            for (key in feature.properties) {
+			
+			var couche_action=feature.properties.couche_select;
+			
+			var les_dicte=champs_dictionnaire(couche_action);
+			
+			var dictionnaire=les_dicte[0];
+			var dictionnaire_view=les_dicte[1];
+			
+
+                if (dictionnaire[key]) {
+				
+                    out.push("<tr><td><b>" + dictionnaire[key] + ":</b></td> <td>" + feature.properties[key] + "</td>");
+                  //  out2.push(dictionnaire[key] + ": " + feature.properties[key]);
+					
+                }
+				
+				 if (dictionnaire_view[key]) {
+				
+                    //out.push("" + dictionnaire[key] + ": " + feature.properties[key] + "");
+                    out2.push(dictionnaire_view[key] + ": " + feature.properties[key]);
+					
+                }
+            }
+            layer.bindPopup("<table><caption>Informations</caption><tbody>"+out+("</tbody></table>"));
+            layer.bindTooltip(out2.join("<br />"));
+        }
+		//alert(feature.geometry.type);
+		
+		//console.log(feature);
+		
+		
+		
+		 
+		
+		if(feature.geometry.type==="Point" || feature.geometry.type==="POINT" || feature.geometry.type==="Multipoint" || feature.geometry.type==="MULTIPOINT") 
+		return false;
+		
+	  
+		layer.setStyle(Style_par_defaut(feature.properties,couche_action,feature.geometry));
+		
+		 (function (layer, properties) {
+            // Create a mouseover event
+            layer.on("mouseover", function (e) {
+                // Change the style to the highlighted version
+                layer.setStyle(highlightStyle);
+                // Create a popup with a unique ID linked to this record
+
+                // Insert a headline into that popup
+            });
+            // Create a mouseout event that undoes the mouseover changes
+            layer.on("mouseout", function (e) {
+                // Start by reverting the style back
+        layer.setStyle(Style_par_defaut(feature.properties,couche_action,feature.geometry));
+                // And then destroying the popup
+
+            });
+            // Close the "anonymous" wrapper function, and call it while passing
+            // in the variables necessary to make the events work the way we want.
+        })(layer, feature.properties);
+		
+		
+        
+    };
+	
+	
+	
+	 var onEachFeature2 = function (feature, layer) {
+        var out = [];
+        var out2 = [];
+        if (feature.properties) {
+            for (key in feature.properties) {
+
+                if (key != 'gid') {
+				
+                    out.push("<b>" + key + "</b>: " + feature.properties[key] + "");
+                    out2.push(key + ": " + feature.properties[key]);
+					
+                }
+            }
+            layer.bindPopup(out.join("<br />"));
+            layer.bindTooltip(out2.join("<br />"));
+        }
+        // Load the default style.
+   layer.setStyle(Style_par_defaut2);
+        // Create a self-invoking function that passes in the layer
+        // and the properties associated with this particular record.
+        (function (layer, properties) {
+            // Create a mouseover event
+            layer.on("mouseover", function (e) {
+                // Change the style to the highlighted version
+                layer.setStyle(highlightStyle);
+                // Create a popup with a unique ID linked to this record
+
+                // Insert a headline into that popup
+            });
+            // Create a mouseout event that undoes the mouseover changes
+            layer.on("mouseout", function (e) {
+                // Start by reverting the style back
+          layer.setStyle(Style_par_defaut2);
+                // And then destroying the popup
+
+            });
+            // Close the "anonymous" wrapper function, and call it while passing
+            // in the variables necessary to make the events work the way we want.
+        })(layer, feature.properties);
+    };
+	
+	
+	 var map = L.map('map').setView([12.6858, -14.78682], 8);
+      // OSM layers
+			var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+			var osmAttrib='';
+			var osm = new L.TileLayer(osmUrl, {attribution: osmAttrib});
+			
+			
+			
+			// Intégration des plugins
+
+	
+	
+	var fond =L.tileLayer.wms("http://173.249.46.218:8080/geoserver/wms", {
+                        layers: 'cite:Region_ppdc',
+				      // CQL_FILTER: "zone_projet=true",
+                        format: 'image/png',
+                        transparent: true,
+						visible: true,
+						isBaseLayer: true
+                    }); 
+					
+					 //map.addLayer(osm);
+					 map.addLayer(osm);
+	
+	var baseMaps = [
+			                { 
+								groupName : "Fond de carte",
+								expanded : true,
+								layers    : {
+									
+									"OpenStreetMaps" : osm,
+								    "Limite projet" : fond
+								}
+					        }						
+			];
+			
+			
+					
+			
+
+
+			
+
+// configure StyledLayerControl options for the layer Zone géographique
+
+
+			
+			
+			var options = {
+				container_width 	: "280px",
+				group_maxHeight     : "160px",
+				container_maxHeight : "2000px", 
+				exclusive       	: false,
+				collapsed : true, 
+				position: 'topright'
+			};
+		
+		    var control = L.Control.styledLayerControl(baseMaps, overlays,options);
+			//map.addControl(control);	
+			control._map = map;
+var controlDiv = control.onAdd(map);
+
+document.getElementById('sideba').appendChild(controlDiv);
+
+ osm.StyledLayerControl = {
+		removable : true,
+		visible : true
+	}
+		
+	
+
+
+
+
+	
+	
+	
+
+<!-- Charge	des zones d'interventions des programmes en point (Centroid) -->	
+function get_entites(type_entite,parent)
+{
+
+if(type_entite==="departements") entite_parent="regions"; else if(type_entite==="communes") entite_parent="departements";
+
+//if(type_entite!="regions") parent=$('#sub_category_'+entite_parent).val();
+
+$.ajax({
+           type: "POST",
+            url: "api/get_couche_entite.php",
+			data:{type_entite:type_entite,parent:parent}, // on peut ajouter des paramètres au POST: ici par exemple on peut récupérer le type : $_POST['type']
+            success: result_d1,
+            dataType: "json"
+            });
+
+			var id_parent;
+			function result_d1(data){
+
+			$('#sub_category_'+type_entite).empty();
+			
+			var val_select="";
+
+			$.each(data.features, function(key,value) {
+
+			if(type_entite==="regions")
+			 val_select+='<option value="'+data.features[key].properties.gid+'">'+data.features[key].properties.nom+'</option>';
+			 
+			 else
+			 
+			 {
+			 
+			 if(id_parent===data.features[key].properties.parent)
+			val_select+='<option value="'+data.features[key].properties.gid+'">'+data.features[key].properties.nom+'</option>';
+			 
+			 else 
+			 
+			// $('#sub_category_'+type_entite).append('<option value="'+data.features[key].properties.gid+'">'+data.features[key].properties.nom+'</option>');
+			 val_select+='<optgroup label="'+entite_parent+' de '+data.features[key].properties.nom_parent+'"> <option value="'+data.features[key].properties.gid+'">'+data.features[key].properties.nom+'</option>';
+			 
+			
+			 }
+			
+			 id_parent=data.features[key].properties.parent;
+			
+			
+			 });
+			 
+			  $('#sub_category_'+type_entite).empty();
+			  $('#sub_category_'+type_entite).html(val_select);
+				
+ 
+var container_couche=new L.GeoJSON.AJAX("http://localhost/ppdc2/new/temp/api/get_couche_entite.php", {
+  pointToLayer: function (feature, coordinates) {
+   
+return L.marker(coordinates, {
+  icon: L.divIcon({
+    className: 'map-marker A',
+     iconSize:null,
+   html:'<div class="icon" style="background:"><i class="" id="mis_" aria-hidden="false"></i></div><div class="arrow" />'
+  })
+});
+        },onEachFeature: onEachFeature2
+     })
+	 
+	 
+
+couche_entite.clearLayers();	 
+container_couche.addTo(couche_entite);
+
+
+container_couche.on('data:loaded', function() {
+map.fitBounds(container_couche.getBounds());
+
+
+$("#chargement_zone").html('');
+	
+}.bind(this));
+    
+			
+		
+
+			}
+
+	
+} get_entites("regions");
+
+var id_dep=[11,13,14];
+get_entites("departements",id_dep);
+var id_com=[29,30,32,34,35,36,37,39,40];
+get_entites("communes",id_com);
+
+
+
+function updateCategories(categories,nom_label){
+var nomparent;
+var objet_ancien;
+var dashboard=[];
+
+//console.log(categories);
+<!-- console.log(categories); -->
+         <!-- $("#sub_category_"+nom_label).empty(); -->
+		 
+var vidange="sub_category_"+nom_label;	 
+
+$('#sub_category_'+nom_label).multiselect('destroy');;
+$('#sub_category_'+nom_label).empty();;		 
+
+	 
+         $.each(categories, function (index) {
+var optgroup ='';
+var option='';
+			
+			
+			
+
+			 option='';
+			 
+             $.each(categories[index], function (i) {
+			 
+			 
+                //console.log(categories[index]);
+				if(objet_ancien!=categories[index] &&  categories[index].type_zone===nom_label)
+				{
+				
+				
+			if(nomparent!=categories[index].parent)
+			{
+			
+			var nom_opt='<optgroup label="'+categories[index].label+' de '+categories[index].nom_parent+'">';
+			
+            <!-- optgroup.attr('label',categories[index].properties.nom_parent); -->
+			optgroup+=nom_opt;
+			
+			
+			   option += "<option value='"+categories[index].gid+"'>"+categories[index].nom+"</option>";
+				
+                 optgroup+=option;
+			
+			 
+			}
+				
+				
+				else
+				{
+				
+                 option += "<option value='"+categories[index].gid+"'>"+categories[index].nom+"</option>";
+				
+                 optgroup+=option;
+				 
+				 }
+				
+				<!-- console.log(categories[index].properties); -->
+				
+				
+				}
+				
+				objet_ancien=categories[index];
+                nomparent=categories[index].parent;
+               
+             }); 
+			 
+			
+			
+			
+             $("#sub_category_"+nom_label).append(optgroup);
+			 
+			
+			
+			 
+
+         });
+      	
+         $(document).ready(function() {
+		 
+                                                $('#sub_category_'+nom_label).multiselect({
+                                                    enableClickableOptGroups: true,
+                                                    enableCollapsibleOptGroups: true,
+                                                    enableFiltering: true,
+                                                    includeSelectAllOption: true,
+													disableIfEmpty: true
+                                                });
+                                            }); 
+									
+									 	
+}
+
+function voir_check()
+{
+var contenu=$('input[name=option_s]:checked').val();
+alert(contenu);
+} 
+
+
+
+function get_couche_allume(param,obj) {
+
+if (param=="add" ) {
+				couche_allume.push(obj);
+				
+            }
+			
+			else if (param=="delete" ) {
+				couche_allume.push(obj);
+				
+            }
+
+	else
+	{
+	$('input[type=radio][name=option_s][value='+param+']').attr('checked', true);
+	
+	var id_emprise=$('#sub_category_'+param).val();
+	console.log(id_emprise);
+	if(!id_emprise)
+	{
+	alert("Vous devez sélectionner des "+param);
+	return false;
+	}
+	if(couche_allume.length===0)
+	alert("aucune couche n'est allumée")
+	for(var i=0;i<couche_allume.length;i++)
+	get_couche(couche_allume[i],);
+	}
+	
+	 
+	
+	
+}
+
+/**
+L.marker([-14, 14], {
+  icon: L.divIcon({
+    className: 'map-marker A',
+     iconSize:null,
+     html:'<div class="icon" style="background:yellow">B</div><div class="arrow" />'
+  })
+}).addTo(map);
+
+*/
+
+
+
+
+
+
+    
+
+  
+   function countOccurences(tab,couche_select){
+	var result = {};
+	tab.forEach(function(elem){
+		if(elem in result){
+			result[elem] = ++result[elem];
+		}
+		else{
+			result[elem] = 1;
+		}
+	});
+	return result;
+	
+}
+
+
+
+
+
+
+
+
+
+<!-- Charge	des zones d'interventions des programmes en point (Centroid) -->	
+var get_stats= function(couche,parent)
+{
+
+var emprise=$('input[name=option_s]:checked').val();
+
+
+var id_emprise=$('#sub_category_'+emprise).val();
+
+var liste_entite=[];
+				var donnees=[];
+				var gid_prec;
+				var donnees_stats=["En marche","En préparation","En cours"];
+				var donnees_stats_1=[];
+				var donnees_stats_2=[];
+				var donnees_stats_3=[];
+				var donnees_i=[];	
+
+$.ajax({
+		   'async': false,
+           type: "POST",
+		   'global': false,
+            url: "api/get_stats.php",
+			data:{type_entite:emprise,couche:couche,id:id_emprise},
+			dataType: "json",			
+            success:function result_d1(data){			
+				$.each(data, function(key,value) {
+				if(gid_prec!=value.gid)
+				{
+				liste_entite.push(value.nom);
+				console.log(donnees_stats[0]);
+				if(value.niveau===donnees_stats[0]) donnees_stats_1.push(value.nombre); else donnees_stats_1.push(0);
+				if(value.niveau===donnees_stats[1]) donnees_stats_2.push(value.nombre); else donnees_stats_2.push(0);
+				if(value.niveau===donnees_stats[2]) donnees_stats_3.push(value.nombre); else donnees_stats_3.push(0)
+				}
+				
+				else
+				{
+				if(value.niveau===donnees_stats[0]) donnees_stats_1[key-1]=(value.nombre);
+				if(value.niveau===donnees_stats[1]) donnees_stats_2[key-1]=(value.nombre);
+				if(value.niveau===donnees_stats[2]) donnees_stats_3[key-1]=(value.nombre);
+				}
+				
+				gid_prec=value.gid;
+				
+				 // $("#nb_"+key+"_"+couche_select).html("<b style='color:blue'>("+value+")</b>")
+				  });
+		donnees.push(liste_entite);donnees.push(donnees_stats_1);donnees.push(donnees_stats_2);donnees.push(donnees_stats_3);
+		
+				
+		
+
+			}
+			 });
+			 
+			 return(donnees)
+
+	
+} 
+
+
+
+statitstiques("vallee_amenagee","Vallée aménagée");
+
+function statitstiques(couche,nom)
+{
+
+var valeurs_stats=get_stats(couche);
+var emprise=$('input[name=option_s]:checked').val();
+
+if(emprise==="regions") var entites="Région"; else if(emprise==="departements") var entites="Département"; else if(emprise==="communes") var entites="Département"; else var entites="Région";
+
+
+Highcharts.chart('container_map', {
+ chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Niveau de réalisation par '+entites+''
+    },
+
+    subtitle: {
+        text: 'Source: données MEPA-dieng'
+    },
+xAxis: {
+			categories:valeurs_stats[0]
+	},
+    yAxis: {
+        title: {
+            text:nom
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'middle'
+    },
+
+    plotOptions: {
+        series: {
+            label: {
+                connectorAllowed: false
+            }
+              
+        }
+    },
+
+    series: [{
+        name: 'En marche',
+        data: valeurs_stats[1]
+    }, {
+        name: 'En cours de réalisation',
+        data: valeurs_stats[2]
+    }, {
+        name: 'En cours d\'étude',
+        data: valeurs_stats[3]
+    }],
+
+    responsive: {
+        rules: [{
+            condition: {
+                maxWidth: 500
+            },
+            chartOptions: {
+                legend: {
+                    layout: 'horizontal',
+                    align: 'center',
+                    verticalAlign: 'bottom'
+                }
+            }
+        }]
+    }
+
+});
+
+
+var ligne="";
+$.each(valeurs_stats[0], function(key) {
+ligne+="<tr><td>"+entites+"</td><td>"+valeurs_stats[0][key]+"</td><td>"+valeurs_stats[1][key]+"</td><td>"+valeurs_stats[2][key]+"</td><td>"+valeurs_stats[3][key]+"</td></tr>";
+});
+
+$("#tab_equipe").html(ligne);
+$("#nom_couche_select").html(nom);
+
+}
+
+
+function read_doc(url)
+{
+$("#reader_pdf").html("<iframe src='doc/"+url+"' style='width:100%;height:600px'></iframe>");
+}
+	</script>
+
+    <!-- Jquery Core Js -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+	
+	 <!--Data Tables js-->
+  <script src="administration/assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/jszip.min.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/pdfmake.min.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/vfs_fonts.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/buttons.html5.min.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/buttons.print.min.js"></script>
+  <script src="administration/assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>
+
+
+    <!-- Bootstrap Core Js 
+    <script src="plugins/bootstrap/js/bootstrap.js"></script> -->
+
+    <!-- Select Plugin Js -->
+   
+    <!-- Slimscroll Plugin Js -->
+    <script src="plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+
+    <!-- Waves Effect Plugin Js -->
+    <script src="plugins/node-waves/waves.js"></script>
+
+    <!-- Jquery CountTo Plugin Js -->
+    <script src="plugins/jquery-countto/jquery.countTo.js"></script>
+
+    <!-- Morris Plugin Js -->
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/morrisjs/morris.js"></script>
+
+    <!-- ChartJs -->
+    <script src="plugins/chartjs/Chart.bundle.js"></script>
+
+    <!-- Flot Charts Plugin Js -->
+    <script src="plugins/flot-charts/jquery.flot.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.resize.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.pie.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.categories.js"></script>
+    <script src="plugins/flot-charts/jquery.flot.time.js"></script>
+
+    <!-- Sparkline Chart Plugin Js -->
+    <script src="plugins/jquery-sparkline/jquery.sparkline.js"></script>
+
+    <!-- Custom Js -->
+    <script src="js/admin.js"></script>
+    <script src="js/pages/index.js"></script>
+	
+	
+	
+
+    <!-- Demo Js -->
+   
+</body>
+<script>
+
+</script>
+
+
+ <script src="js/symbolisation.php"></script>
+<script>
+map.addControl(htmlLegend1and2)
+
+var table = $('#table_activites').DataTable( {
+    lengthChange: false,
+     responsive: true,
+     language: {
+                "url": "administration/assets/i18n/datatable.json"
+        },
+//dom: 'Bfrtip',
+   buttons: [ 'copy', 'excel', 'pdf', 'print', 'colvis' ],
+   
+   ajax: {
+        "url": 'administration/api/get_document.php'
+    },
+//    buttons: [ 'excel', 'pdf', 'colvis' ],
+    columns: [
+        {
+            "data": "nom_document",
+            "render": function (data) {
+                var bouton_modifier = '&nbsp;<a data-toggle="tooltip" data-placement="left" href="documents/'+data+'" target="_blank" title="Visualiser" class="btn-warning modifier"><i class="fa fa-eye"></i></a>';
+                var bouton_supprimer = '&nbsp;<button data-toggle="tooltip" data-placement="left" title="supprimer" class="btn-danger supprimer"><i class="fa fa-trash"></i></button>';
+               // var bouton_zone_interv = '&nbsp;<button data-toggle="tooltip" data-placement="left" title="Zone d\'intervention" class="btn-success intervention"><i class="fa fa-map"></i></button>'; 
+                    return '<div style="font-size:10px;" align="center" >'+
+                       bouton_modifier
+                    +'</div>';
+               
+            }
+        },
+        {"data": "description"},
+        {"data": "nom_document",
+		
+		"render": function (data) {
+                
+                    return '<div style="font-size:10px;" align="center"> <iframe style="width:100%;height:90px" src="documents//'+data+'"></iframe></div>';
+               
+            }
+		
+		}
+
+    ],
+    
+  } );
+  
+
+
+</script>
+
+</html>

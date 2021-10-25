@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "nom": "OCB",
+        "description": "Organisation Communautaire de Base"
+    },
+    {
+        "id": 2,
+        "nom": "ADUP",
+        "description": "Association de Developpement des Unités Pastorales"
+    },
+    {
+        "id": 3,
+        "nom": "CNIF",
+        "description": "Cadre National Interprofessionnel de la Filière..."
+    }
+]

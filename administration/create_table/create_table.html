@@ -1,0 +1,50 @@
+<div class="row row-card-no-pd">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<div class="card-head-row card-tools-still-right">
+										<h4 class="card-title">CREATION D'UNE NOUVELLE TABLE</h4>
+										<div class="card-tools">
+											<button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-angle-down"></span></button>
+											<button class="btn btn-icon btn-link btn-primary btn-xs btn-refresh-card"><span class="fa fa-sync-alt"></span></button>
+											<button class="btn btn-icon btn-link btn-primary btn-xs"><span class="fa fa-times"></span></button>
+										</div>
+									</div>
+									<p class="card-category">
+									Vous pouvez crééer ici une nouvelle table d'informations</p>
+								</div>
+								<div class="card-body">
+									<div class="row"><form action="" method="post" id="Form_table">
+									<div class="col-sm-12">
+											<div class="form-group form-group-default">
+											<label>Thématique</label>
+											<select name="thematique" id="thematique" class="form-control" style="border:1px solid gray;padding:5px"><option value="">Selectionner thématique</option>liste_thematique </select>
+											</div>
+										<div class="col-sm-12">
+											<div class="form-group form-group-default">
+											<label>Nom de la table</label>
+											<input type="text" name="table_names" id="table_names" class="form-control" style="border:1px solid gray;padding:5px" Placeholder="Nom de la table">
+											</div>
+						<div class="form-group form-group-default">
+						<label>Nom du champ</label>
+						<div id="InputsWrapper">
+						<div><input type="text" class="form-control" style="border:1px solid gray;padding:5px" Placeholder="Nom du champ" name="mytext[]" id="field_1" value=""> <select style="border:2px solid red;padding:3px"  name="myselect_s[]" id="sel_1"><option value="text">Selectionner le type d'informations</option><option value="double precision">Monnaie</option><option value="Integer">Nombre</option><option value="date">Date</option><option value="text">Autre</option></select><a href="#" class="removeclass"></a></div>
+						</div>
+						</div> 
+						</div>
+						<div id="AddMoreFileId">
+						<a href="#" id="AddMoreFileBox">Ajouter un nouveau champ</a><br><br>
+						</div>
+						<div id="lineBreak"></div>
+						
+						</form>
+						<input type="button" id="submit_create_table" class="btn btn-info" value="Créer table">
+						</div>
+						</div> 
+						</div> 
+						</div> 
+						</div> 
+						</div> 
+  
+
+  <script src="create_table/index.js"></script>

@@ -1,0 +1,12 @@
+[
+	{
+		"id": 1,
+		"contenu": "alerte",
+		"nombre_de_personnes": 4
+	},
+	{
+		"id": 2,
+		"contenu": "feux",
+		"nombre_de_personnes": 4
+	}
+]

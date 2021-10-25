@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content="Suivi de l'impact environnemental du PARFA"/>
+  <meta name="author" content="Centre de suivi écologique"/>
+  <title> Suivi de l'impact environnemental | PARFA </title>
+  <!--favicon-->
+  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+  <!--lightboxgallery Css-->
+  <link rel="stylesheet" href="assets/plugins/lightboxgallery/css/lightboxgallery.css"/>
+  <!-- notifications css -->
+  <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css"/>
+  <!-- Vector CSS -->
+  <link href="assets/plugins/vectormap/jquery-jvectormap-2.0.2.css" rel="stylesheet"/>
+  <!-- simplebar CSS-->
+  <link href="assets/plugins/simplebar/css/simplebar.css" rel="stylesheet"/>
+  <!-- Bootstrap core CSS-->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="assets/plugins/bootstrap-datatable/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+  <link href="assets/plugins/bootstrap-datatable/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css">
+  <!-- animate CSS-->
+  <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Sidebar CSS-->
+  <link href="assets/css/sidebar-menu.css" rel="stylesheet"/>
+  <!-- Custom Style-->
+  <link href="assets/css/app-style.css" rel="stylesheet"/>
+  <link href="assets/css/style-custom.css" rel="stylesheet"/>
+  <!-- map leaflet -->
+
+  <link rel="stylesheet" type="text/css" href="assets/css/legend-indicateur.css" />
+  <!-- multiple select -->
+  <link rel="stylesheet" type="text/css" href="assets/css/multiple-select.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/plugins/select2/css/select2.min.css">
+  <!-- datepicker -->
+  <link rel="stylesheet" type="text/css" href="assets/plugins/datepicker/css/datepicker3.css">
+
+  <!--multi select-->
+   <link href="assets/plugins/jquery-multi-select/multi-select.css" rel="stylesheet" type="text/css">
+
+   <link rel="stylesheet" href="assets/plugins/leaflet/css/leaflet.css" />
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129160546-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-129160546-1');
+  </script>
+
+</head>
+
+<body>
+
+  <!-- Start wrapper-->
+  <div id="wrapper">
+
+    <!--Start sidebar-wrapper-->
+    <div id="sidebar-wrapper" data-simplebar="" data-simplebar-auto-hide="true">
+      <div class="brand-logo">
+        <a href="">
+          <h5 class="logo-text">
+            <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon" style="width: 120px; height: 50px;">
+          </h5>
+        </a>
+      </div>
+      <ul class="sidebar-menu do-nicescrol">
+        <li>
+          <a href="#home" class="waves-effect" id="menu-dashboard">
+            <i class="icon-home"></i><span>Accueil</span>
+          </a>
+        </li>
+        <li>
+          <a href="#indicateurs" class="waves-effect" id="menu-indicateur">
+            <i class="fa fa-area-chart"></i><span>Indicateurs</span>
+          </a>
+        </li>
+        <li>
+          <a href="#rapports" class="waves-effect" id="menu-rapport">
+            <i class="fa fa-book"></i><span>Rapports</span>
+          </a>
+        </li>
+        <li>
+          <a href="#cartotheque" class="waves-effect" id="menu-cartotheque">
+            <i class="fa fa-image"></i><span>Cartothèque</span>
+          </a>
+        </li>
+        <li>
+          <a href="#videotheque" class="waves-effect" id="menu-videotheque">
+            <i class="fa fa-file-video-o"></i><span>Vidéothèque</span>
+          </a>
+        </li>
+        <li>
+          <a href="#sectoriels" class="waves-effect" id="menu-sectoriel">
+            <i class="fa fa-group"></i><span>Sectoriels</span>
+          </a>
+        </li>
+        <li>
+          <a href="#beneficiaires" class="waves-effect" id="menu-beneficiaire">
+            <i class="fa fa-gift"></i><span>Bénéficiaires</span>
+          </a>
+        </li>
+        <li>
+          <a href="#administration" class="waves-effect" id="menu-user">
+            <i class="fa fa-id-card-o"></i><span>Administration</span>
+          </a>
+        </li>
+        <li>
+          <a href="javascript:void(0);" class="waves-effect" id="menu-about">
+            <i class="fa fa-exclamation"></i><span>Partenaires</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <!--End sidebar-wrapper-->
+
+    <!--Start topbar header-->
+    <header class="topbar-nav">
+      <nav class="navbar navbar-expand fixed-top gradient-parfa">
+        <div class="navbar-nav mr-auto align-items-center">
+          <div class="nav-item ">
+            <a class="nav-link toggle-menu" href="javascript:void();">
+              <i class="icon-menu menu-icon"></i>
+            </a>
+          </div>
+          <div class="nav-item">
+            <div class="logo-text desc-app"> Suivi de l'impact environnemental</div>
+          </div>
+        </div>
+        <ul class="navbar-nav align-items-center right-nav-link">
+          <li class="nav-item dropdown-lg" data-toggle="tooltip" data-placement="bottom" title="10 indicateurs à valider">
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret waves-effect" data-toggle="dropdown" href="javascript:void();">
+              <i class="icon-bell"></i><span class="badge badge-primary badge-up">10</span>
+            </a>
+            <ul id="notifications" class="dropdown-menu dropdown-menu-right animated fadeIn">
+              <li class="dropdown-item">Notification 1</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">Notification 2</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">Voir tout</li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link dropdown-toggle dropdown-toggle-nocaret" data-toggle="dropdown" href="#">
+              <span class="user-profile"><i class="img-circle fa fa-user fa-2x"></i></span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-right animated fadeIn">
+              <li class="dropdown-item user-details">
+                <div class="media">
+                  <div class="avatar"><i class="align-self-start mr-3 fa fa-user fa-2x"></i></div>
+                  <div class="media-body">
+                    <h6 class="mt-2 user-title"><span id="user_prenoms_nom"></span></h6>
+                    <p class="user-subtitle"><span id="user_email"></span></p>
+                  </div>
+                </div>
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item" id="profile"><i class="icon-user mr-2"></i> Voir mon profil</li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item" id="deconnexion"><i class="icon-power mr-2"></i> Déconnexion</li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <!--End topbar header-->
+
+    <div class="clearfix"></div>
+
+    <!--Start content-wrapper-->
+    <div class="content-wrapper">
+      <!--Start container-fluid-->
+      <div id="container-fluid"></div>
+      <!-- End container-fluid-->
+    </div>
+    <!--End content-wrapper-->
+
+    <!-- resource modal: about -->
+    <div class="modal fade" id="about_modal">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Partenaires du projet</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Ce projet a été réalisé avec l'appui des partenaires</p>
+            <div class="row">
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">United Nations Industrial Development Organization</h5>
+                    <a href="https://www.unido.org/who-we-are/unido-worldwide/africa/offices/senegal" target="_blank">
+                      <img src="assets/images/logos/onudi.png" class="center-img" alt="logo icon" style="width: auto; height: 100px;">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Fonds International de Developpement Agricole</h5>
+                    <a href="https://www.ifad.org/en/web/operations/country/id/senegal" target="_blank">
+                      <img src="assets/images/logos/fida.png" class="center-img" alt="logo icon" style="width: auto; height: 100px;">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Ministère de l'Environnement et du Développement durable du Sénégal</h5>
+                    <a href="http://www.environnement.gouv.sn/" target="_blank">
+                      <img src="assets/images/logos/senegal.png" class="center-img" alt="logo icon" style="width: auto; height: 100px;">
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">Global Environment Facility</h5>
+                    <a href="https://www.thegef.org/country/senegal" target="_blank">
+                      <img src="assets/images/logos/gef.png" class="center-img" alt="logo icon" style="width: auto; height: 120px;">
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-close" data-dismiss="modal"><i class="fa fa-times"></i> Fermer</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--Start Back To Top Button-->
+    <a href="Javascript" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+
+    <!--Start footer-->
+    <footer class="fixed-bottom">
+      <div class="container">
+        <div class="text-center">
+          Copyright © 2018 PARFA
+        </div>
+      </div>
+    </footer>
+    <!--End footer-->
+
+  </div>
+  <!--End wrapper-->
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="assets/js/jquery-2.2.4.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <!--Multi Select Js-->
+  <script src="assets/plugins/jquery-multi-select/jquery.multi-select.js"></script>
+  <script src="assets/plugins/jquery-multi-select/jquery.quicksearch.js"></script>
+
+  <!--lightboxgallery-->
+  <script src="assets/plugins/lightboxgallery/js/lightboxgallery-min.js"></script>
+
+  <!-- simplebar js -->
+  <script src="assets/plugins/simplebar/js/simplebar.js"></script>
+  <!-- waves effect js -->
+  <script src="assets/js/waves.js"></script>
+  <!-- sidebar-menu js -->
+  <script src="assets/js/sidebar-menu.js"></script>
+  <!-- Custom scripts -->
+  <script src="assets/js/app-script.js"></script>
+
+  <!-- Vector map JavaScript -->
+  <script src="assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js"></script>
+  <script src="assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+  <!-- Sparkline JS -->
+  <script src="assets/plugins/sparkline-charts/jquery.sparkline.min.js"></script>
+  <!-- Chart js -->
+  <script src="assets/plugins/highcharts/highcharts.js"></script>
+  <script src="assets/plugins/highcharts/series-label.js"></script>
+  <script src="assets/plugins/highcharts/exporting.js"></script>
+  <script src="assets/plugins/highcharts/offline-exporting.js"></script>
+  <!-- leaflet JS -->
+  <script src="assets/plugins/leaflet/js/leaflet.js"></script>
+  <script type="text/javascript" src="assets/plugins/leaflet/js/leaflet.ajax.js"></script>
+  <script src="assets/plugins/bundle.js"></script>
+  <script src="assets/js/choropleth.js"></script>
+  <!-- multiple select -->
+  <script src="assets/js/multiple-select.min.js"></script>
+  <script type="text/javascript" src="assets/plugins/select2/js/select2.min.js"></script>
+  <!-- datepicker -->
+  <script src="assets/plugins/datepicker/js/bootstrap-datepicker.js"></script>
+  <!-- notification js -->
+  <script src="assets/plugins/notifications/js/lobibox.min.js"></script>
+  <script src="assets/plugins/notifications/js/notifications.min.js"></script>
+  <!-- prettyembed -->
+  <script src="assets/plugins/prettyembed/jquery.prettyembed.js"></script>
+  <script src="assets/plugins/prettyembed/jquery.prettyembed.min.js"></script>
+  <!-- shapefile -->
+  <script src="assets/plugins/shapefile/shp.min.js"></script>
+
+  <!-- inputmask -->
+  <script src="assets/plugins/inputmask.js"></script>
+
+  <!--dataTables js -->
+  <script src="assets/plugins/bootstrap-datatable/js/jquery.dataTables.min.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/dataTables.bootstrap4.min.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/dataTables.buttons.min.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/buttons.bootstrap4.min.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/jszip.min.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/pdfmake.min.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/vfs_fonts.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/buttons.html5.min.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/buttons.print.min.js"></script>
+  <script src="assets/plugins/bootstrap-datatable/js/buttons.colVis.min.js"></script>
+
+
+
+  <!-- cookies -->
+  <script src="assets/plugins/js-cookie/src/js.cookie.js"></script>
+  <script src="assets/plugins/jwt-decode/build/jwt-decode.js"></script>
+
+  <!-- Index js -->
+  <script defer src="assets/config.js"></script>
+  <script defer src="assets/js/index.js"></script>
+  <script>
+    // API url
+    var urlAPI='';
+    $(document).ready(function(){
+      urlAPI = config.url;
+    });
+
+    // gallery display when clicked on
+    jQuery(function($) {
+      $(document).on('click', '.lightboxgallery-gallery-item', function(event) {
+          event.preventDefault();
+          $(this).lightboxgallery({
+            showCounter: true,
+            showTitle: true,
+            showDescription: true
+          });
+      });
+    });
+
+    // création et vérification token/cookies
+    var token = Cookies.get('token');
+    if (token !== undefined && token !== null) {
+      var utilisateur = jwt_decode(token);
+      var currentTime = new Date().getTime() / 1000;
+      if (currentTime > utilisateur.exp) {
+        Cookies.remove('token');
+        document.location.href = "authentication.html";
+      }
+    }
+    else {
+      document.location.href = "authentication.html";
+    }
+
+    // authentification
+    $('#deconnexion').on('click', function (e) {
+      e.preventDefault();
+      Cookies.remove('token');
+      document.location.href = "authentication.html";
+    });
+
+    // droits sur les rubriques (navigation)
+    if (utilisateur.data.role !== 3) {
+      $('#menu-user').hide();
+    }
+    if (utilisateur.data.role === 1) {
+      $('#menu-beneficiaire').hide();
+    }
+
+    /**
+     * Generates a message with type of message (success / warning / error)
+     * and icon respectively with values (fa fa-check-circle / fa fa-exclamation-circle / fa fa-times-circle)
+     *
+     * @param {String} msg_type
+     * @param {String} icon
+     * @param {String} msg
+     * @returns {Object}
+    */
+    function notification(msg_type, msg, icon) {
+      Lobibox.notify(msg_type, {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top right',
+        icon: icon,
+        msg: msg
+      });
+    }
+  </script>
+
+
+
+</body>
+
+</html>

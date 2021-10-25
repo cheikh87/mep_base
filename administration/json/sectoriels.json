@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nom": "CSE",
+    "lien_structure": "https://www.cse.sn/",
+    "description": "Centre de Suivi Ecologique"
+  },
+  {
+    "id": 2,
+    "nom": "INP",
+    "lien_structure": "https://www.groupe-inp.fr/",
+    "description": "Institut National de Pédologie"
+  },
+  {
+    "id": 3,
+    "nom": "DEFCCS",
+    "lien_structure": "https://www.eaux-forets.sn",
+    "description": "Direction des Eaux et Forêts, Chasses Et Conservation Des Sols"
+  },
+  {
+    "id": 4,
+    "nom": "DIREL",
+    "lien_structure": "https://www.elevage.gouv.sn",
+    "description": "Direction de l'élevage"
+  },
+  {
+    "id": 5,
+    "nom": "DAI DAPSA",
+    "lien_structure": "https://www.dapsa.gouv.sn",
+    "description": "Direction de l'Analyse, de la Prévion et des Statistiques Agricoles"
+  },
+  {
+    "id": 6,
+    "nom": "ANSD",
+    "lien_structure": "https://www.ansd.sn",
+    "description": "Agence Nationale de la Statistique et de la Démographie"
+  },
+  {
+    "id": 7,
+    "nom": "DGPRE",
+    "lien_structure": "https://www.dgpre.gouv.sn",
+    "description": "Direction de la Gestion et de la Planification des Ressources en Eau"
+  },
+  {
+    "id": 8,
+    "nom": "ANACIM",
+    "lien_structure": "https://www.anacim.sn",
+    "description": "Agence Nationale de l'Aviation Civile et de la Météorologie"
+  }
+]

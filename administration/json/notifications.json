@@ -1,0 +1,12 @@
+[
+	{
+		"id": 1,
+		"message": "alerte",
+		"destinataire": 2
+	},
+	{
+		"id": 2,
+		"message": "feux",
+		"destinataire": 771234567
+	}
+]

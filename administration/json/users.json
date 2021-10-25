@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "nom": "DIONE",
+    "prenoms": "Hamath",
+    "login": "hamathdione",
+    "email": "hamathdione@gmail.com",
+    "structure": "PARFA",
+    "role": 2,
+    "actif": true
+  },
+  {
+    "id": 2,
+    "nom": "NDIAYE",
+    "prenoms": "Abdoulaye",
+    "login": "abdoulayendiaye",
+    "email": "abdoulayendiaye@gmail.com",
+    "structure": "PARFA",
+    "role": 2,
+    "actif": true
+  },
+  {
+    "id": 3,
+    "nom": "FAYE",
+    "prenoms": "Abdoulaye",
+    "login": "abdoulayefaye",
+    "email": "abdoulayefaye@gmail.com",
+    "structure": "PARFA",
+    "role": 2,
+    "actif": true
+  },
+  {
+    "id": 4,
+    "nom": "BA",
+    "prenoms": "Abiboulaye",
+    "login": "abiboulayeba",
+    "email": "abiboulayeba@gmail.com",
+    "structure": "PARFA",
+    "role": 3,
+    "actif": true
+  },
+  {
+    "id": 5,
+    "nom": "POUYE",
+    "prenoms": "Ibrahima",
+    "login": "ibrahimapouye",
+    "email": "ibrahimapouye@gmail.com",
+    "structure": "PARFA",
+    "role": 3,
+    "actif": true
+  },
+  {
+    "id": 6,
+    "nom": "DIOP",
+    "prenoms": "Abdoulaye",
+    "login": "abdoulayediop",
+    "email": "abdoulayediop@gmail.com",
+    "structure": "CSE",
+    "role": 1,
+    "actif": true
+  }
+]

@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "nom": "DIONE",
+    "prenoms": "Hamath",
+    "numero_telephone": 774564545,
+    "fonction": "économiste",
+    "actif": true
+  },
+  {
+    "id": 2,
+    "nom": "NDIAYE",
+    "prenoms": "Abdoulaye",
+    "numero_telephone": 781238451,
+    "fonction": "géomaticien",
+    "actif": true
+  },
+  {
+    "id": 3,
+    "nom": "POUYE",
+    "prenoms": "Ibrahima",
+    "numero_telephone": 764026588,
+    "fonction": "staticien",
+    "actif": true
+  },
+  {
+    "id": 4,
+    "nom": "FAYE",
+    "prenoms": "Abdoulaye",
+    "numero_telephone": 704589502,
+    "fonction": "géographe",
+    "actif": true
+  }
+  ]

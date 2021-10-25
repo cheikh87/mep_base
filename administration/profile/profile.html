@@ -1,0 +1,198 @@
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title">Profil utilisateur</h4>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <div class="profile-card-4">
+            <div class="card">
+                <div class="card-body text-center bg-primary rounded-top">
+                    <div class="user-box">
+                        <i class="fa fa-user fa-lg text-light"></i>
+                    </div>
+                    <h5 class="mb-1 text-white"><span id="prenoms_nom_utilisateur"></span></h5>
+                    <h6 class="text-light"><span id="structure_utilisateur"></span></h6>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group shadow-none">
+                        <li class="list-group-item">
+                            <div class="list-icon">
+                                <i class="fa fa-envelope"></i>
+                            </div>
+                            <div class="list-details">
+                                <span id="email_utilisateur"></span>
+                                <small>Addresse e-mail</small>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="list-icon">
+                                <i class="fa fa-globe"></i>
+                            </div>
+                            <div class="list-details">
+                                <span id="siteweb_utilisateur"></span>
+                                <small>Addresse site web</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <ul class="nav nav-pills nav-pills-primary nav-justified">
+                    <li class="nav-item">
+                        <a href="javascript:void();" data-target="#utilisateur" data-toggle="pill" class="nav-link active"><i class="icon-user"></i> <span class="hidden-xs">Modifier</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void();" data-target="#messages" data-toggle="pill" class="nav-link"><i class="icon-envelope-open"></i> <span class="hidden-xs">Messages</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="javascript:void();" data-target="#edit" data-toggle="pill" class="nav-link"><i class="icon-note"></i> <span class="hidden-xs">Mot de passe</span></a>
+                    </li>    
+                </ul>
+                <div class="tab-content p-3">
+                    <div class="tab-pane active" id="utilisateur">
+                        <form>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Nom</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="nom" type="text" placeholder="Nom">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Prénoms</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="prenoms" type="text" placeholder="Prénoms">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Adresse e-mail</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="email" type="email" placeholder="Adresse e-mail">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Nom d'utilisateur</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="username" type="text" placeholder="Nom d'utilisateur" disabled>
+                                </div>
+                            </div>    
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Structure</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="structure" type="text" placeholder="Structure" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label">Adresse du site web</label>
+                                <div class="col-lg-9">
+                                    <input class="form-control" id="siteweb" type="text" placeholder="Adresse du site web" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-lg-3 col-form-label form-control-label"></label>
+                                <div class="col-lg-9">
+                                    <input type="button" id="edit_utilisateur" class="btn btn-primary" value="Enregistrer">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane" id="messages">
+                        <div class="alert alert-info alert-dismissible" role="alert">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <div class="alert-icon">
+                                <i class="icon-info"></i>
+                            </div>
+                            <div class="alert-message">
+                                <span><strong>Messages envoyés.</strong></span>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table width="100%" id="messages_envoyes" class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Messages</th>
+                                        <th>Dates</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Here is your a link to the latest summary report ...</td>
+                                        <td><span class="float-right font-weight-bold">3 hrs ago</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>There has been a request on your account since ...</td>
+                                        <td><span class="float-right font-weight-bold">Yesterday</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Porttitor vitae ultrices quis, dapibus id dolor ...</td>
+                                        <td><span class="float-right font-weight-bold">9/10</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vestibulum tincidunt ullamcorper eros eget luctus ...</td>
+                                        <td><span class="float-right font-weight-bold">9/4</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Maxamillion ais the fix for tibulum tincidunt ...</td>
+                                        <td><span class="float-right font-weight-bold">9/4</span></td>
+                                    </tr>
+                                </tbody> 
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="edit">
+                        <div class="col-md-12">
+                            <h5 class="mt-2 mb-3">Changer de mot de passe</h5>
+                            <form>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Actuel</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" id="password" type="password" placeholder="Mot de passe actuel" autofocus>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Nouveau</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" id="new_password" type="password" placeholder="Nouveau mot de passe">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Confirmation</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" id="confirmed_password" type="password" placeholder="Confirmer le nouveau mot de passe">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <input type="reset" class="btn btn-secondary" value="Annuler">
+                                        <input type="button" id="edit_password" class="btn btn-primary" value="Enregistrer">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <hr>
+                        <div class="col-md-12">
+                            <h5 class="mt-2 mb-3">
+                                <span class="fa fa-clock-o ion-clock float-right"></span> Historique de connexion
+                            </h5>
+                            <table width="100%" id="historique" class="table table-hover table-striped col-md-12">
+                                <thead>
+                                    <tr>
+                                        <th>Actions</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="profile/profile.js"></script>

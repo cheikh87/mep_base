@@ -1,0 +1,656 @@
+<div class="row pt-2 pb-2">
+    <div class="col-sm-9">
+        <h4 class="page-title couche_title">Unités pastorales</h4>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="">Accueil</a></li>
+            <li class="breadcrumb-item active couche_title" aria-current="page">Projets</li>
+        </ol>
+    </div>
+</div>
+
+
+<div class="row">
+        <div class="col-lg-12">
+		      <div class="card">
+           <div class="card-body">
+
+        <div class="row">
+        
+           
+                    
+        <!-- Right Sidebar -->
+        <div class="col-lg-12 col-md-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    
+                </div>
+
+            
+
+            </div> <!-- End row -->
+            
+            <div class="card mt-3 shadow-none border border-light">
+                <div class="card-body">
+                   
+                   
+					
+			<div class="card" id="time-line-activity">
+        
+            <div class="card-body">
+              <div class="table-responsive">
+             <section class="cd-horizontal-timeline">
+			
+	
+   <ul class="nav nav-tabs nav-tabs-primary">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tabe-1"><i class="icon-home"></i> <span class="hidden-xs">Données</span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tabe-2"><i class="icon-user"></i> <span class="hidden-xs">Légendes</span></a>
+                  </li>
+                 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link"  data-toggle="tab" href="#tabe-3"><i class="icon-settings"></i>Dictionnaire des données</a>
+                  </li>
+                </ul>
+  <div class="tab-content">
+                  <div id="tabe-1" class="container tab-pane active">
+    <button  class="btn btn-primary" title="Ajouter de nouvelelles données" style="float:left;display:none" id="new_s_b">
+					<a ><i class="fa fa-long-arrow-right"></i> Ajouter un nouvel enregistrement <small class="badge float-right badge-info">+</small></a></button> 
+					
+<button  class="btn btn-danger" title="Ajouter de nouvelelles données" style="float:right" id="new_s_">
+					<a ><i class="fa fa-long-arrow-right"></i> Importer shapefile <small class="badge float-right badge-info">+</small></a></button>
+
+<br> <br><br> 					
+					
+ <table id="table_activites" class="table table-bordered responsive nowrap" width="100%">
+			   <caption class="page-title"> Projets<b> <span class='title_activity'></span></b>  </caption>
+                <thead>
+                    <tr  id="table_head">
+					   
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                </tbody>
+               
+            </table>
+			
+			
+			   </div> 
+			   
+			   
+			    <div id="tabe-2" class="container tab-pane fade">
+				
+				<button type="button" style="float:right" class="btn btn-primary" data-toggle="modal" data-target="#legende_modal">Ajouter une légende</button>
+                  
+				  <table id="table_legendes" class="table table-bordered responsive nowrap" width="100%">
+			   <caption>Légende de la couche <span class="page-title"></span> <b> <span class=''></span></b>  </caption>
+                <thead>
+                    <tr>
+					   <th>Action</th>
+					    <th>Libellé</th>
+					   <th>Valeur</th>
+					    <th>Style</th>
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                </tbody>
+               
+            </table>
+				  
+                  </div>
+                  <div id="tabe-3" class="container tab-pane fade">
+                   <button type="button" style="float:right" class="btn btn-primary" data-toggle="modal" data-target="#dictionnaire_champ">Ajouter un nouveau champ</button>
+                 
+				   
+				     <table id="table_dictionnaires" class="table table-bordered responsive nowrap" width="100%">
+			   <caption>Dictionnaire des champs <span class="page-title"></span> <b> <span class=''></span></b>  </caption>
+                <thead>
+                    <tr>
+					    <th>Action</th>
+					    <th>Champs</th>
+					   <th>Apparait sur la fenetre contextuel au clique</th>
+					   <th>Apparait sur la fenetre contextuel au survol</th>
+					   
+                    </tr>
+                </thead>
+                <tbody>
+                 
+                </tbody>
+               
+            </table>
+				   
+				   
+                  </div>
+			   
+			   
+			      </div> 
+            
+          </section>
+            </div>
+            </div>
+          </div>
+                    
+                  
+                </div> <!-- card body -->
+            </div> <!-- card -->
+        </div> <!-- end Col-9 -->
+                    
+                    </div><!-- End row -->
+					
+					
+					
+					
+					
+					
+					
+					
+					
+
+             </div>
+                    </div>
+        </div>
+      </div><!-- End row -->
+
+	  
+
+<!-- Mdoals -->
+
+
+
+				
+				
+				
+
+
+
+<div class="modal fade" id="new_s">
+                  <div class="modal-dialog">
+                    <div class="modal-content gradient-royal border-0">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-white"><i class="fa fa-star"></i> <span class="title_activity"></span> </h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="">
+                       <div class="card">
+			    
+				<div class="card">
+			     <div class="card-body">
+				   <div class="card-title">Veuillez remplir les champs</div>
+				   <hr>
+				    <span id="lat_ling"></span>	
+				    <form id="form_add">
+					 
+									 
+					 <input id="gid" name="gid" type="hidden">
+					 
+					
+					</form>
+					 <div class="form-group">
+					  <button id="add_" class="btn btn-primary shadow-primary btn-square px-5"><i class="icon-lock"></i> Ajouter</button>
+					</div>
+					 <div class="form-group">
+					  <button id="edit_" class="btn btn-primary shadow-primary btn-square px-5"><i class="icon-lock"></i> Modifier</button>
+					</div>
+				 </div>
+			   </div>
+				
+						</div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times"></i> Fermer</button>
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div><!--End Modal -->		
+
+
+                <div class="modal fade" id="new_s_import">
+                  <div class="modal-dialog">
+                    <div class="modal-content gradient-royal border-0">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-white"><i class="fa fa-star"></i> <span class="title_activity"></span> </h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="">
+                       <div class="card">
+			    
+				<div class="card">
+			     <div class="card-body">
+				   <div class="card-title">Importation de nouvelles données</div>
+           <hr>
+           
+           <div class="row">
+
+            <div class="col-lg-6 col-md-6">  
+
+              <form id="upload_form" enctype="multipart/form-data" method="post">
+                <input type="file" name="file1" id="file1"><br>
+                <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+                
+                 <span id="description_du_doc"> </span>
+                <h3 id="status"></h3>
+                <p id="loaded_n_total"></p>
+                
+              </form>	
+              
+              
+            <div class="form-group">
+              <button id="add_import" onclick="uploadFile()" class="btn btn-primary shadow-primary btn-square px-5"><i class="icon-lock"></i> Importer</button>
+            </div>
+
+            </div>
+
+
+            <div class="col-lg-6 col-md-6">  
+
+              <div id="map2" style="display:block;width:100%;height:350px">  </div> 
+              
+            </div>
+            
+           </div>
+				    
+					 
+					
+				 </div>
+			   </div>
+				
+						</div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-dismiss="modal"><i class="fa fa-times"></i> Fermer</button>
+                       
+                      </div>
+                    </div>
+                  </div>
+                </div><!--End Modal -->		
+
+
+
+ <!-- resource modal: confirmations -->
+            <div class="modal fade" id="confirm_modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <span class="title2"></span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Voulez-vous vraiment <span class="confirm_action"></span> ?
+                        </div>
+						<form id="sup_element">
+						<input type="hidden" id="gid_sup" name="gid">
+						</form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-close" data-dismiss="modal"><i class="fa fa-times"></i> Annuler</button>
+                            <button type="button" id="delete_" class="btn btn-danger"><i class="fa fa-check-square-o"></i> Supprimer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+	
+  <div class="modal fade" id="legende_modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <span class="title2">Paramétrage des légendes  <span class="page-title_"></span> </span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+						
+						<div class="card">
+			     <div class="card-body">
+				  <form id="form_legende">
+				   <div class="card-title">Ajouter une nouvelle légende sur:   <select id="colonne" name="colonne"> </select></div>
+				   <hr>
+				   
+					 <div class="form-group">
+					  <label for="input-13">Nature légende</label>
+					  <select name="type_legende" id="type_legende">
+					   <option value="default"> Par défaut </option>
+					   <option value="Autre"> Autre</option>
+					  </select>
+					 </div>
+					 
+					  <div class="form-group">
+					  <label for="input-13">Libellé</label>
+					 <textarea class="form-control form-control-square" id="nom_legende" name="nom_legende" placeholder="Veuilez donner un libellé à la légende"></textarea>
+					 </div>
+					 
+					 <div class="row shadow-none border border-light">
+					 
+				
+					 
+					 <div id="type_param" class="col-lg-6 col-md-6">
+					 <span id="titre_champ_select"> </span>
+					 <select name='symbole' id='symbole'>
+					 
+					 </select>
+					 
+					  <span id="definition_valeur"> </span>
+					  
+					    <input type="hidden" id="type_valeur" name="type_valeur">
+					    <input type="hidden" id="type_geom" name="type_geom">
+					  
+					 </div>
+					 
+					
+					 <div id="type_style" class="col-lg-6 col-md-6">
+					 
+					  </div>
+					 
+			
+			        </div>
+					 
+					
+					
+					</form>
+					
+					
+				 </div>
+			   </div>
+                          
+                        </div>
+						
+                        <div class="modal-footer">
+						
+                        <div class="form-group">
+					  <button id="add_legende" class="btn btn-primary shadow-primary btn-square px-5"><i class="icon-lock"></i> Ajouter</button>
+					   </div>
+					   
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			
+			
+			<div class="modal fade" id="dictionnaire_modal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <span class="title2">Paramétrage des noms des champs  <span class="page-title_"></span> </span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+						
+						<div class="card">
+			     <div class="card-body">
+				  <form id="form_dictionnaire">
+				   <div class="card-title">Modifier</div>
+				   <hr>
+				   
+					 <div class="form-group">
+					  <label for="input-13" id="nom_champs"></label>
+					 <div id="name_champ_"></div>
+					 </div>
+					 
+					  <div class="card-body">
+              <div class="demo-checkbox">
+                  <input type="checkbox" id="basic_checkbox_1" name="label_view"  />
+                  <label for="basic_checkbox_1">Apparait lors du survol de la couche</label>
+                  <input type="checkbox" id="basic_checkbox_2"  name="popup_view" class="filled-in"  />
+                  <label for="basic_checkbox_2">Apparaitre sur le popup au click</label>
+                 
+              </div>
+            </div>
+					 
+					 <input type="hidden" id="gid_dict" name="id">
+					
+					</form>
+					
+					
+				 </div>
+			   </div>
+                          
+                        </div>
+						
+                        <div class="modal-footer">
+						
+                        <div class="form-group">
+					  <button id="mod_dict" class="btn btn-primary shadow-primary btn-square px-5"><i class="icon-lock"></i> Modifier</button>
+					   </div>
+					   
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			
+			<div class="modal fade" id="dictionnaire_champ">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title"> <span class="title2">Nouveau champ  <span class="page-title_"></span> </span></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+						
+						<div class="card">
+			     <div class="card-body">
+				  <form id="form_champ">
+				  
+					 <div class="form-group">
+					  <label for="input-13">Nom du champ</label>
+					 <input class="form-control form-control-square" id="nom_colonne" name="nom_colonne" placeholder="Nom du champs">
+					 </div>
+					 
+					 <div class="form-group">
+					  <label for="input-13">Type de données</label>
+					<select id="data_type" name="data_type">
+					<option value="character varying">Text</option>
+					<option value="double precision">Nombre</option>
+					</select>
+					 </div>
+					 
+					
+					</form>
+					
+					
+				 </div>
+			   </div>
+                          
+                        </div>
+						
+                        <div class="modal-footer">
+						
+                        <div class="form-group">
+					  <button id="ajout_champ" class="btn btn-primary shadow-primary btn-square px-5"><i class="icon-lock"></i> Ajouter</button>
+					   </div>
+					   
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+	
+
+<div class="modal fade" id="zone_inter_modal">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title"><i class="fa fa-star"></i><span class="title3"></span></h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                        
+			  
+			    <div class="row">
+
+              <div class="col-lg-12 col-md-12"> 
+				
+            <div class="card">
+              <div class="card-body"> 
+                <ul class="nav nav-tabs nav-tabs-primary">
+                  <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#tabe-1"><i class="icon-home"></i> <span class="hidden-xs">Importer  </span></a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tabe-2"><i class="icon-user"></i> <span class="hidden-xs">Ajouter une  </span></a>
+                  </li>
+                 
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="tab" href="#tabe-3"><i class="icon-settings"></i> <span class="hidden-xs">Liste infrastructure </span></a>
+          				
+                  </li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                  <div id="tabe-1" class="container tab-pane active">
+                    
+                    <form id="upload_form2" enctype="multipart/form-data" method="post">
+                      <input type="file" name="file1_" id="file1_"><br>
+                      <progress id="progressBar_" value="0" max="100" style="width:300px;"></progress>
+                      
+                       <span id="description_du_doc_"> </span>
+                      <h3 id="status_"></h3>
+                      <p id="loaded_n_total_"></p>
+                      
+                    </form>	
+                    
+                    
+                  <div class="form-group">
+                    <button id="add_import_" onclick="uploadFile_()" class="btn btn-primary shadow-primary btn-square px-5"><i class="icon-lock"></i> Importer</button>
+                  </div>
+
+                  </div>
+                  <div id="tabe-2" class="container tab-pane fade">
+
+
+                      <div class="col-lg-6 col-md-6"> 
+
+                      <form id="form_add_i">
+                          <div class="form-group">
+                           <label for="input-13">Nom de l'infrastructure</label>
+                           <input  class="form-control form-control-square" id="nom" name="nom" placeholder="Nom infrastructure">
+                          </div>
+                          
+                          <div class="form-group">
+                           <label for="input-13">Type d'infrastructure</label>
+                           <input class="form-control form-control-square" id="type" name="type" placeholder="Type d'infrastructure">
+                          </div>
+                          
+                         
+                          <div class="form-group">
+                           <label for="input-15">Code infrastructure</label>
+                            <input type="text" class="form-control form-control-square" id="code" name="code" placeholder="Code de l'infrastructure">
+                          </div>
+
+                          <div class="form-group">
+                              <label for="input-15">Longitude</label>
+                               <input type="text" class="form-control form-control-square" id="lon" name="lon" placeholder="Longitude">
+                             </div>
+
+                             <div class="form-group">
+                                <label for="input-15">Latitude</label>
+                                 <input type="text" class="form-control form-control-square" id="lat" name="lat" placeholder="Latitude">
+                               </div>
+                          
+                     
+                          
+                          <input id="up" name="up" type="hidden">
+                          <input id="SHAPE" name="SHAPE" value="1" type="hidden">
+                          
+                         
+                         </form>
+
+                        </div>
+
+                         <div class="form-group">
+                            <button id="add_i" class="btn btn-primary shadow-primary btn-square px-5"><i class="icon-lock"></i> Ajouter</button>
+                          </div>
+                   
+                  </div>
+                  <div id="tabe-3" class="container tab-pane fade">
+                   
+                      
+
+                          <div class="row">
+               
+                         
+                         <div class="col-lg-12 col-md-12">
+                        
+                           
+                             <table id="table_infrastructures" class="table table-bordered responsive nowrap" width="100%">
+                                 <caption> <b> Liste des infrastructures </b>  </caption>
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Nom</th>
+                                                <th>Type</th>
+                                                <th>Etat</th>      
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         
+                                        </tbody>
+                                       
+                                    </table>
+               
+               
+               
+                       </div>
+               
+               
+               
+                       
+               
+                         
+                       </div> 
+               
+               
+                  </div>
+                </div>
+              </div>
+           </div>
+
+          </div>
+            
+                  </div>
+				
+      <div class="row">
+				
+        
+
+
+         <div class="col-lg-12 col-md-12"> <div id="map" style="display:block">  </div> </div>
+                
+      </div>
+					
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        <button type="button" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>	
+
+				
+<!-- Fin des Modals -->
+
+
+
+
+ 
+<script src="couche_geo/index.js"></script>
+ 
+

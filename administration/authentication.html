@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>Administration de la page PPDC</title>
+  <!--favicon-->
+  <link rel="icon" href="assets/images/logo_mepa.png" type="image/x-icon">
+  <!-- Bootstrap core CSS-->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Custom Style-->
+  <link href="assets/css/app-style.css" rel="stylesheet"/>
+  
+   <!-- notifications css -->
+  <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css"/>
+  
+</head>
+
+<body class="authentication-bg">
+ <!-- Start wrapper-->
+ <div id="wrapper">
+	<div class="card card-authentication1 mx-auto my-5 animated zoomIn">
+		<div class="card-body">
+		 <div class="card-content p-2">
+		  <div class="text-center">
+		 		<img src="assets/images/logo_mepa.png" width="100%"/>
+		 	</div>
+		  <div class="card-title text-uppercase text-center py-2">Se connecter</div>
+		    <form id="se_connecter">
+			  <div class="form-group">
+			   <div class="position-relative has-icon-left">
+				  <label for="exampleInputUsername" class="sr-only">Email</label>
+				  <input type="text" id="exampleInputUsername" name="email" class="form-control" placeholder="Email">
+				  <div class="form-control-position">
+					  <i class="icon-user"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			   <div class="position-relative has-icon-left">
+				  <label for="exampleInputPassword" class="sr-only">Mot de passe</label>
+				  <input type="password" id="exampleInputPassword" name="password" class="form-control" placeholder="Mot de passe">
+				  <div class="form-control-position">
+					  <i class="icon-lock"></i>
+				  </div>
+			   </div>
+			  </div>
+			<div class="form-row mr-0 ml-0">
+			 <div class="form-group col-6">
+			   <div class="demo-checkbox">
+                <input type="checkbox" id="user-checkbox" class="filled-in chk-col-danger" />
+                <label for="user-checkbox">Se souvenir de moi</label>
+			  </div>
+			 </div>
+			 <div class="form-group col-6 text-right">
+			  <a href="authentication-reset-password.html">Réinitialiser mot de passe</a>
+			 </div>
+			</div>
+			
+			 <div class="form-group">
+			   <button id="submit_connecter"  type="button" class="btn btn-danger shadow-danger btn-block waves-effect waves-light">Se connecter</button>
+			 </div>
+			  <div class="form-group text-center">
+			   <p class="text-muted">Vous n'avez oas encore créé de compte ? <a href="new_account.html"> CLiquer ici</a></p>
+			 </div>
+			
+			 </form>
+		   </div>
+		  </div>
+	     </div>
+    
+     <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	</div><!--wrapper-->
+	
+	 <!-- notification js -->
+  <script src="assets/plugins/notifications/js/lobibox.min.js"></script>
+  <script src="assets/plugins/notifications/js/notifications.min.js"></script>
+   <!-- cookies -->
+    <script src="assets/plugins/js-cookie/src/js.cookie.js"></script>
+    <script src="assets/plugins/jwt-decode/build/jwt-decode.js"></script>
+  <!-- Bootstrap core JavaScript-->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- waves effect js -->
+  <script src="assets/js/waves.js"></script>
+  <!-- Custom scripts -->
+  <script src="assets/js/app-script.js"></script>
+  
+  
+<script>
+function notification(msg_type, msg, icon) {
+      Lobibox.notify(msg_type, {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top right',
+        icon: icon,
+        msg: msg
+      });
+    }
+	
+	
+ (function ($) {
+	$.fn.serializeFormJSON = function () {
+
+			var o = {};
+			var a = this.serializeArray();
+			$.each(a, function () {
+					if (o[this.name]) {
+							if (!o[this.name].push) {
+									o[this.name] = [o[this.name]];
+							}
+							o[this.name].push(this.value || '');
+					} else {
+							o[this.name] = this.value || '';
+					}
+			});
+			return o;
+	};
+})(jQuery);
+
+
+
+$('#submit_connecter').on('click', function (e) {
+		e.preventDefault();
+	//	var s = $('#indicator_infos_form').serialize();
+
+//var s_json=$('#indicator_infos_form').serializeFormJSON();
+
+		var s = $('#se_connecter').serializeFormJSON();
+		   
+
+		$.ajax({
+				url:'api/utilisateurs.php',
+				type: 'POST',
+				"content-type": "application/json",
+    		"cache-control": "no-cache",
+				data: s,
+				success: function (result) {
+						notification('success', result.message, 'fa fa-check-circle');
+			   var token = result.token;
+                if (token) {
+                    Cookies.set('token', token);
+                    document.location.href = "./";
+                }
+
+				},
+				error: function (data) {
+				console.log(data);
+						notification('error', data.responseJSON.message, 'fa fa-times-circle');
+						//$("#loader_").html("");
+				}
+		});
+
+		//notification('success',s,'fa fa-check-circle');
+	});
+ 
+ </script>
+	
+</body>
+</html>

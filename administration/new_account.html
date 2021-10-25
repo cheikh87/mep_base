@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content=""/>
+  <meta name="author" content=""/>
+  <title>Suivi des marchés Tabaski</title>
+  <!--favicon-->
+  <link rel="icon" href="assets/images/AVSF_logo.ico" type="image/x-icon">
+  <!-- Bootstrap core CSS-->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- animate CSS-->
+  <link href="assets/css/animate.css" rel="stylesheet" type="text/css"/>
+  <!-- Icons CSS-->
+  <link href="assets/css/icons.css" rel="stylesheet" type="text/css"/>
+  <!-- Custom Style-->
+  <link href="assets/css/app-style.css" rel="stylesheet"/>
+  
+   <!-- notifications css -->
+  <link rel="stylesheet" href="assets/plugins/notifications/css/lobibox.min.css"/>
+  
+</head>
+
+<body class="authentication-bg">
+ <!-- Start wrapper-->
+ <div id="wrapper">
+	<div class="card card-authentication1 mx-auto my-3 animated zoomIn">
+		<div class="card-body">
+		 <div class="card-content p-2">
+		   <div class="text-center">
+		 		<img src="assets/images/AVSF_logo.png"/>
+		 	</div>
+		  <div class="card-title text-uppercase text-center py-2">Création de nouveau compte</div>
+		    <form>
+			  <div class="form-group">
+			   <div class="position-relative has-icon-left">
+				  <label for="exampleInputName" class="sr-only">Prénom et nom</label>
+				  <input type="text" id="prenom" name="prenom" class="form-control" placeholder="Prénom et nom">
+				  <div class="form-control-position">
+					  <i class="icon-user"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			   <div class="position-relative has-icon-left">
+				  <label for="exampleInputEmailId" class="sr-only">Email</label>
+				  <input type="text" id="email" name="email" class="form-control" placeholder="Adresse Email">
+				  <div class="form-control-position">
+					  <i class="icon-envelope-open"></i>
+				  </div>
+			   </div>
+			  </div>
+			  
+			  <div class="form-group">
+			   <div class="position-relative has-icon-left">
+				  <label for="exampleInputEmailId" class="sr-only">Type agent</label>
+				  <select id="statut" name="statut" type="text"  class="form-control" placeholder="Type agent">				  
+				  <option value=''>Type agent</option>
+				  <option value='Agent'>Agent</option>
+				  <option value='Consultant'>Consultant</option>
+				  </select>
+				  <div class="form-control-position">
+					  <i class="icon-graduation"></i>
+				  </div>
+			   </div>
+			  </div>
+			  
+			  
+			  
+			  	  <div class="form-group">
+			   <div class="position-relative has-icon-left">
+				  <label for="exampleInputEmailId" class="sr-only">Téléphone</label>
+				  <input type="text" id="telephone" name="telephone" class="form-control" placeholder="Téléphone">
+				  <div class="form-control-position">
+					  <i class="icon-phone"></i>
+				  </div>
+			   </div>
+			  </div>
+			  
+			  
+			  <div class="form-group">
+			   <div class="position-relative has-icon-left">
+				  <label for="exampleInputPassword" class="sr-only">Mot de passe</label>
+				  <input type="text" id="password" name="password" class="form-control" placeholder="Mot de passe">
+				  <div class="form-control-position">
+					  <i class="icon-lock"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			   <div class="position-relative has-icon-left">
+				  <label for="exampleInputRetryPassword" class="sr-only">Confirmer mot de passe</label>
+				  <input type="password" id="confirmer" class="form-control" placeholder="Confirmer mot de passe">
+				  <div class="form-control-position">
+					  <i class="icon-lock"></i>
+				  </div>
+			   </div>
+			  </div>
+			  <div class="form-group">
+			    <button type="button" id="create_account" class="btn btn-danger shadow-danger btn-block waves-effect waves-light">Enregistrer</button>
+			  </div>
+			  
+			  <div class="form-group text-center">
+			   <p class="text-muted">Vous avez déjà activté votre compte? <a href="authentication.html"> Cliquer ici pour vous connecter</a></p>
+			  </div>
+			  
+			 </form>
+		   </div>
+		  </div>
+	     </div>
+    
+     <!--Start Back To Top Button-->
+    <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
+    <!--End Back To Top Button-->
+	</div><!--wrapper-->
+	
+  <!-- Bootstrap core JavaScript-->
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/popper.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <!-- waves effect js -->
+  <script src="assets/js/waves.js"></script>
+  <!-- Custom scripts -->
+  <script src="assets/js/app-script.js"></script>
+  
+   <!-- notification js -->
+  <script src="assets/plugins/notifications/js/lobibox.min.js"></script>
+  <script src="assets/plugins/notifications/js/notifications.min.js"></script>
+	
+</body>
+</html>
+
+
+
+
+<script>
+function notification(msg_type, msg, icon) {
+      Lobibox.notify(msg_type, {
+        pauseDelayOnHover: true,
+        continueDelayOnInactiveTab: false,
+        position: 'top right',
+        icon: icon,
+        msg: msg
+      });
+    }
+	
+  // redirection
+$('#create_account').on('click', function (e) {
+        e.preventDefault();
+       
+
+
+
+var prenom=$("#prenom").val();
+var nom=$("#nom").val();
+var email=$("#email").val();
+var statut=$("#statut").val();
+var telephone=$("#telephone").val();
+var password=$("#password").val();
+var confirmer=$("#confirmer").val();
+
+var statut_compte=0;
+var table="utilisateur";
+
+
+if (prenom.length == 0) {
+          alert("Vous devez donner votre nom et prénom");
+		  document.getElementById('prenom').style.border = '2px solid red';
+          return false;
+          }	 
+		  
+if (email.length == 0) {
+          alert("Vous devez donner renseigner votre email");
+		  document.getElementById('prenom').style.border = '1px solid gray';
+          document.getElementById('email').style.border = '2px solid red';
+          return false;
+          }	 
+		  
+if (statut.length == 0) {
+          alert("Vous devez renseigner votre statut");
+		  document.getElementById('email').style.border = '1px solid gray';
+          document.getElementById('statut').style.border = '2px solid red';
+          return false;
+          }	  
+		  
+		  
+
+	if (telephone.length == 0) {
+          alert("Vous devez donner un numéro de téléphone");
+		  document.getElementById('unite').style.border = '1px solid gray';
+          document.getElementById('telephone').style.border = '2px solid red';
+          return false;
+          }	  
+
+		  if (password.length == 0) {
+          alert("Le mot de passe ne doit pas etre vide");
+          return false;
+          }	  
+		  
+		  
+if(password!=confirmer)
+{	
+$("#rapport_pass").html('<b style="color:red">Vos deux mots de passe ne correspondent pas</b>');
+return false;
+}
+
+$.ajax({
+           type: "POST",
+            url: "api/ajouter_user.php",
+			data:{prenom:prenom,email:email,statut:statut,telephone:telephone,statut_compte:statut_compte,table:table,password:password}, // on peut ajouter des paramètres au POST: ici par exemple on peut récupérer le type : $_POST['type']
+            success: success_result,
+			error: error_result,
+            dataType: "json"
+            });
+
+			function success_result(result){
+
+			notification('success', result.message, 'fa fa-check-circle');
+			document.location.href = "authentication.html";
+
+			}
+			
+			
+			function error_result(result){
+			notification('error', result.responseJSON.message, 'fa fa-times-circle');
+
+			}
+
+ });
+
+</script>

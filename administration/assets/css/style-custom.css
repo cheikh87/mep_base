@@ -1,0 +1,16 @@
+	.gradient-parfa{
+	background: #ee0979;
+	background: -webkit-linear-gradient(45deg, #ee0979, #ff6a00)!important;
+	background: linear-gradient(45deg, #41ee09, #5C8E47)!important;
+}
+
+.desc-app{
+  position: relative;
+  top: 50%;
+}
+
+footer{
+	background-color: #1a262b;
+	color: white;
+	font-weight: bold;
+}

@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "nom": "catégorie 1",
+        "description": "description 1",
+        "actif": true
+    },
+    {
+        "id": 2,
+        "nom": "catégorie 2",
+        "description": "description 2",
+        "actif": true
+    },
+    {
+        "id": 3,
+        "nom": "catégorie 3",
+        "description": "description 3",
+        "actif": true
+    },
+    {
+        "id": 4,
+        "nom": "catégorie 4",
+        "description": "description 4",
+        "actif": true
+    }
+]

@@ -1,0 +1,32 @@
+[
+	{
+		"id": 1,
+		"quantite": 41,
+		"annee": 2007
+	},
+	{
+		"id": 2,
+		"quantite": 41,
+		"annee": 2008
+	},
+	{
+		"id": 3,
+		"quantite": 41,
+		"annee": 2009
+	},
+	{
+		"id": 4,
+		"quantite": 41,
+		"annee": 2010
+	},
+	{
+		"id": 5,
+		"quantite": 41,
+		"annee": 2011
+	},
+	{
+		"id": 6,
+		"quantite": 41,
+		"annee": 2012
+	}
+]
